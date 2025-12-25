@@ -1,7 +1,7 @@
 <?php
     // Определение переменных
     if (!defined('LOGGER_PATH')) {
-        define('LOGGER_PATH', '/var/log/slm/web.log');
+        define('LOGGER_PATH', '/var/log/nginx/web.log');
     }
 
     if (!defined('LOGOUT_PATH')) {
