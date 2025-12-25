@@ -1,4 +1,6 @@
 <?php
+    //SPDX-License-Identifier: AGPL-3.0-only WITH LICENSE-ADDITIONAL
+    //Copyright (C) 2025 Петунин Лев Михайлович
 
     // Определяем корень веб-сервера
     if (!defined('ROOT_PATH')) {
@@ -23,5 +25,5 @@
 <!-- Подвал -->
 <footer class="footer">
     <div class="version">Version: <?php echo htmlspecialchars($currentVersion); ?></div>
-    <div class="version">Apache License Version 2.0, 2025</div>
+    <div class="version">AGPL-3.0-only WITH LICENSE-ADDITIONAL, 2025</div>
 </footer>
