@@ -1,19 +1,25 @@
 <?php
     //SPDX-License-Identifier: AGPL-3.0-only WITH LICENSE-ADDITIONAL
     //Copyright (C) 2025 Петунин Лев Михайлович
-    
-    // Путь к файлу с функциями
-    $file_path = 'include/constant.php';
 
-    // Проверка существования файла
-    if (!file_exists($file_path)) {
-        // Если файл не существует, перенаправляем на страницу ошибки 503
-        header("Location: /err/50x.html");
-        exit(); // Завершаем выполнение скрипта
+    // CONSTANT //
+
+    if (!defined('VERSION_WEB')) {
+        define('VERSION_WEB', '0.9.1');
     }
-        
-    // Подключаем файл с функциями
-    require_once $file_path;
+
+    // Определение переменных
+    if (!defined('LOGGER_PATH')) {
+        define('LOGGER_PATH', '/var/log/nginx/web.log');
+    }
+
+    if (!defined('LOGOUT_PATH')) {
+        define('LOGOUT_PATH', '/platform/logout.php');
+    }
+
+    if (!defined('BACKEND_URL')) {
+        define('BACKEND_URL', 'http://api-eos-dev.local/');
+    }
 
     // Функция для логирования
     function logger($level = 'INFO', $message = '') {
