@@ -1,7 +1,4 @@
 <?php
-    // Логируем начало работы скрипта
-    logger("DEBUG", "Функция getLdapStatus подключена и готова к использованию");
-
     /**
      * Функция для получения статуса LDAP через API
      * 
@@ -17,9 +14,6 @@
         
         // Формируем полный URL для запроса, объединяя базовый адрес бэкенда и путь к API
         $apiUrl = BACKEND_URL . '/api/config/v1/read/ldap/enabled';
-        
-        // Логируем сформированный URL для отладки
-        logger("DEBUG", "Сформирован URL для запроса: " . $apiUrl);
         
         // Инициализируем cURL сессию
         $ch = curl_init();
@@ -40,10 +34,7 @@
                 'Accept: application/json' // Указываем, что ожидаем JSON-ответ
             ]
         ]);
-        
-        // Логируем начало выполнения запроса
-        logger("DEBUG", "Выполнение cURL запроса к API...");
-        
+                
         // Выполняем запрос и сохраняем ответ
         $response = curl_exec($ch);
         
@@ -58,23 +49,13 @@
         
         // Проверяем, успешен ли запрос (HTTP код 200 = OK)
         if ($httpCode === 200) {
-            // Логируем успешный ответ от сервера
-            logger("DEBUG", "Успешный ответ от API. Парсим JSON...");
-            
             // Парсим JSON-ответ в ассоциативный массив (true во втором параметре)
-            $data = json_decode($response, true);
-            
-            // Логируем полученные данные для отладки
-            logger("DEBUG", "Полученные данные от API: " . print_r($data, true));
-            
+            $data = json_decode($response, true);            
             // Проверяем структуру ответа и наличие ожидаемых полей
             if (isset($data['value'])) {
                 // Преобразуем строковое значение "true"/"false" в булево
                 $isLdapActive = ($data['value'] === 'true');
-                
-                // Логируем результат проверки
-                logger("DEBUG", "Значение параметра LDAP enabled: " . $data['value']);
-                logger("DEBUG", "LDAP статус (булево значение): " . ($isLdapActive ? 'true' : 'false'));
+                logger("DEBUG", "LDAP статус: " . ($isLdapActive ? 'true' : 'false'));
                 
                 // Возвращаем булево значение активности LDAP
                 return $isLdapActive;
