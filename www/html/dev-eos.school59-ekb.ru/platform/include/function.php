@@ -3,7 +3,7 @@
     //Copyright (C) 2025 Петунин Лев Михайлович
     
     // Путь к файлу с функциями
-    $file_path = 'constant.php';
+    $file_path = 'include/constant.php';
 
     // Проверка существования файла
     if (!file_exists($file_path)) {
