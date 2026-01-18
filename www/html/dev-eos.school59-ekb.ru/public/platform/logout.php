@@ -1,16 +1,20 @@
 <?php
-    // Путь к файлу с функциями
-    $file_path = 'include/function.php';
+    //SPDX-License-Identifier: AGPL-3.0-only WITH LICENSE-ADDITIONAL
+    //Copyright (C) 2025 Петунин Лев Михайлович
 
-    // Проверка существования файла
-    if (!file_exists($file_path)) {
-        // Если файл не существует, перенаправляем на страницу ошибки 503
-        header("Location: /err/50x.html");
-        exit(); // Завершаем выполнение скрипта
+    if (!defined('PUBLIC_ROOT_PATH')) {
+        define('PUBLIC_ROOT_PATH', $_SERVER['DOCUMENT_ROOT']);
     }
-    
-    // Подключаем файл с функциями
-    require_once $file_path;
+
+    if (!defined('PRIVATE_ROOT_PATH')) {
+        define('PRIVATE_ROOT_PATH', (dirname($_SERVER['DOCUMENT_ROOT'])) . '/private');
+    }
+
+    $file_path = PRIVATE_ROOT_PATH . '/init.php';
+    if (!@require_once $file_path) {
+        header("Location: " . PRIVATE_ROOT_PATH . "/err/50x.html");
+        exit();
+    }
 
     // Запуск сессии, если она еще не была запущена
     startSessionIfNotStarted();
@@ -19,7 +23,6 @@
     if (isset($_SESSION['username'])) {
         // Логируем информацию о том, что пользователь начал процесс выхода
         logger("INFO", "Пользователь " . $_SESSION['username'] . " начал процесс выхода из системы.");
-        logger("INFO", "Пользователь " . $_SESSION['username'] . " запустил процесс выхода из системы.");
     }
 
     // Удаление access_token из сессии
@@ -57,6 +60,6 @@
     logger("INFO", "Перенаправление на страницу авторизации. IP пользователя: " . $ipAddress);
 
     // Перенаправление пользователя на страницу авторизации
-    header("Location: login.php");
+    header("Location:" . PUBLIC_ROOT_PATH . "/platform/login.php");
     exit(); // Завершение выполнения скрипта
 ?>  
