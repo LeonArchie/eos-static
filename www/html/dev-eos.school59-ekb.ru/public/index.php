@@ -36,8 +36,5 @@
         header("Location: " . LOGOUT_PATH);
     }
     exit();
-
-
-    echo 'ОНО РАБОТАКЕТ'
 ?>
 

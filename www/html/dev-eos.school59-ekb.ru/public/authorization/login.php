@@ -2,22 +2,22 @@
     //SPDX-License-Identifier: AGPL-3.0-only WITH LICENSE-ADDITIONAL
     //Copyright (C) 2025 Петунин Лев Михайлович
 
-//     if (!defined('PUBLIC_ROOT_PATH')) {
-//         define('PUBLIC_ROOT_PATH', $_SERVER['DOCUMENT_ROOT']);
-//     }
+    if (!defined('PUBLIC_ROOT_PATH')) {
+        define('PUBLIC_ROOT_PATH', $_SERVER['DOCUMENT_ROOT']);
+    }
 
-//     if (!defined('PRIVATE_ROOT_PATH')) {
-//         define('PRIVATE_ROOT_PATH', (dirname($_SERVER['DOCUMENT_ROOT'])) . '/private');
-//     }
+    if (!defined('PRIVATE_ROOT_PATH')) {
+        define('PRIVATE_ROOT_PATH', (dirname($_SERVER['DOCUMENT_ROOT'])) . '/private');
+    }
 
-//     $file_path = PRIVATE_ROOT_PATH . '/init.php';
-//     if (!@require_once $file_path) {
-//         header("Location: " . PRIVATE_ROOT_PATH . "/err/50x.html");
-//         exit();
-//     }
+    $file_path = PRIVATE_ROOT_PATH . '/init.php';
+    if (!@require_once $file_path) {
+        header("Location: /err/50x.html");
+        exit();
+    }
 
-//     // Запуск сессии, если она еще не запущена
-//     startSessionIfNotStarted();
+    // Запуск сессии, если она еще не запущена
+    startSessionIfNotStarted();
 
 //     include PRIVATE_ROOT_PATH . "platform/functions/getLdapStatus.php";
 
