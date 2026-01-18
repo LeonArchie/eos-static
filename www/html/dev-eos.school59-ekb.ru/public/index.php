@@ -24,18 +24,18 @@
 
     logger("INFO", "index успешно инициализирован");
 
-    // //Инициализация проверки или запуска сессии
-    // startSessionIfNotStarted();
+    //Инициализация проверки или запуска сессии
+    startSessionIfNotStarted();
 
-    // // Основная логика
-    // if (checkAuth()) {
-    //     logger("INFO", "Авторизация успешна, перенаправление на dashboard");
-    //     header("Location:" . PUBLIC_ROOT_PATH . "platform/dashboard.php");
-    // } else {
-    //     logger("WARNING", "Авторизация не пройдена, перенаправление на logout");
-    //     header("Location: " . PUBLIC_ROOT_PATH . LOGOUT_PATH);
-    // }
-    // exit();
+    // Основная логика
+    if (checkAuth()) {
+        logger("INFO", "Авторизация успешна, перенаправление на dashboard");
+        header("Location: platform/dashboard.php");
+    } else {
+        logger("WARNING", "Авторизация не пройдена, перенаправление на logout");
+        header("Location: " . LOGOUT_PATH);
+    }
+    exit();
 
 
     echo 'ОНО РАБОТАКЕТ'
