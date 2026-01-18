@@ -60,6 +60,6 @@
     logger("INFO", "Перенаправление на страницу авторизации. IP пользователя: " . $ipAddress);
 
     // Перенаправление пользователя на страницу авторизации
-    header("Location:" . PUBLIC_ROOT_PATH . "/authorization/login.php");
+    header("Location:/authorization/login.php");
     exit(); // Завершение выполнения скрипта
 ?>  
