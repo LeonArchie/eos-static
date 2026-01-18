@@ -12,13 +12,13 @@
 
     $file_path = PRIVATE_ROOT_PATH . '/init.php';
     if (!@require_once $file_path) {
-        header("Location: " . PRIVATE_ROOT_PATH . "/err/50x.html");
+        header("Location: /err/50x.html");
         exit();
     }
 
     $file_path = PRIVATE_ROOT_PATH . '/platform/functions/check_auth.php';
     if (!@require_once $file_path) {
-        header("Location: " . PRIVATE_ROOT_PATH . "/err/50x.html");
+        header("Location: /err/50x.html");
         exit();
     }
 
