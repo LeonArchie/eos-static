@@ -19,23 +19,23 @@
     // Запуск сессии, если она еще не запущена
     startSessionIfNotStarted();
 
-//     include PRIVATE_ROOT_PATH . "platform/functions/getLdapStatus.php";
+    include PRIVATE_ROOT_PATH . "platform/functions/getLdapStatus.php";
 
-//     // Получаем статус LDAP
-//     try {
-//         $ldap_active = getLdapStatus();
-//     } catch (Exception $e) {
-//         logger("ERROR", "Ошибка при запросе статуса LDAP: " . $e->getMessage());
-//         $ldap_active = false;
-//     }
+    // Получаем статус LDAP
+    try {
+        $ldap_active = getLdapStatus();
+    } catch (Exception $e) {
+        logger("ERROR", "Ошибка при запросе статуса LDAP: " . $e->getMessage());
+        $ldap_active = false;
+    }
 
-//     $auth_type_disabled = !$ldap_active;
-//     $default_auth_type = $ldap_active ? 'ldap' : 'internal';
+    $auth_type_disabled = !$ldap_active;
+    $default_auth_type = $ldap_active ? 'ldap' : 'internal';
 
-//     include PUBLIC_ROOT_PATH . "platform/snackbars/inital_error.php";
+    include PUBLIC_ROOT_PATH . "platform/snackbars/inital_error.php";
 
-//     // Логируем успешную инициализацию скрипта
-//     logger("DEBUG", "login.php успешно инициализирован.");
+    // Логируем успешную инициализацию скрипта
+    logger("DEBUG", "login.php успешно инициализирован.");
 // ?>
 <!DOCTYPE html>
 <html lang="ru">
