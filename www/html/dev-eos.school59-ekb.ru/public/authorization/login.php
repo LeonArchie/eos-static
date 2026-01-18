@@ -59,13 +59,13 @@
             rel="icon"
             sizes="16x16 32x32 48x48"
             type="image/png"
-            href="images/eos_icon.png"
+            href="/platform/images/eos_icon.png"
         />
         <link rel="stylesheet" href="css/login.css"/>
-        <link rel="stylesheet" href="css/snackbars.css"/>
+        <link rel="stylesheet" href="/platform/css/snackbars.css"/>
     </head>
     <body>
-        <?php include PUBLIC_ROOT_PATH . 'platform/include/eos_header.html'; ?>
+        <?php include PUBLIC_ROOT_PATH . 'authorization/include/eos_header.html'; ?>
         <!-- Основной контент -->
         <main class="authorization">
             <h2>Авторизация</h2>
@@ -91,12 +91,12 @@
                 <!-- Кнопка отправки -->
                 <input type="submit" value="Войти">
             </form>
-            <?php include PUBLIC_ROOT_PATH . 'include/loading.html'; ?>
+            <?php include PUBLIC_ROOT_PATH . 'platform/include/loading.html'; ?>
         </main>
-         <?php include PUBLIC_ROOT_PATH . 'include/error.php'; ?>
-        <?php include PUBLIC_ROOT_PATH . 'include/footer.php'; ?>
+         <?php include PUBLIC_ROOT_PATH . 'platform/include/error.php'; ?>
+        <?php include PUBLIC_ROOT_PATH . 'platform/include/footer.php'; ?>
         <!-- Подключаем скрипты -->
-        <script src="js/snackbars.js"></script>
+        <script src="../platform/js/snackbars.js"></script>
         <script src="js/login.js"></script>
     </body>
 </html>
