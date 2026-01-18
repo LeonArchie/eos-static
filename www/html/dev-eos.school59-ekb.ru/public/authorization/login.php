@@ -32,7 +32,7 @@
     $auth_type_disabled = !$ldap_active;
     $default_auth_type = $ldap_active ? 'ldap' : 'internal';
 
-    include PUBLIC_ROOT_PATH . "/platform/snackbars/inital_error.php";
+    include PUBLIC_ROOT_PATH . "/platform/include/inital_error.php";
 
     // Логируем успешную инициализацию скрипта
     logger("DEBUG", "login.php успешно инициализирован.");
